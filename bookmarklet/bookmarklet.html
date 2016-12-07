@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="https://d3u3u7bjn61hwm.cloudfront.net/css/fonts.css">
+    <link rel="stylesheet" type="text/css" href="https://d3u3u7bjn61hwm.cloudfront.net/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="https://d3u3u7bjn61hwm.cloudfront.net/css/katex.min.css">
+    <title>Embedded Terminal Testing 12/7/16</title>
+    <!--  <script src="bookmarklet.js" type="text/javascript"></script>-->
+  </head>
+
+  <body style="font-size:22px;margin:5px;line-height:30px;">
+    <h1>Embedding Terminals in Udacity Classroom</h1>
+    <ol>
+      <li>Drag the blue button to your Chrome bookmarks bar. <div style="font-size:14px;">If you need to do so, click <i>View...Always Show Bookmarks Bar</i> to show the bookmarks bar. (Watch <a target="_new" style="font-style:italic,bold;" href="http://screencast.com/t/wZ2k4cYg">this video</a> for a walkthrough of this step.)</div>
+        <a style="line-height:55px;background-color:blue;padding:10px;color:#fff;border-radius:5px;font-weight:800;text-decoration:none;" href="javascript:(function()%7Bvar%20cdn_url%20%3D%20'https%3A%2F%2Fstorage.googleapis.com%2Fedu-content%2F0.0.13%2Fpublic'%3Bvar%20terminalClientLink%20%20%20%20%20%3D%20cdn_url%20%2B%20'%2Flib%2FterminalClient.js'%3Bfunction%20injectScriptAndUse(srcUrl%2C%20cb)%20%7Bvar%20head%20%3D%20document.getElementsByTagName(%22head%22)%5B0%5D%3Bvar%20script%20%3D%20document.createElement(%22script%22)%3Bscript.src%20%3D%20srcUrl%3Bscript.onload%20%3D%20function()%20%7B%20return%20cb()%3B%20%7D%3Bhead.appendChild(script)%3B%7Dfunction%20insertSnippet()%20%7BinjectScriptAndUse('https%3A%2F%2Fcode.jquery.com%2Fjquery-2.2.3.min.js'%2C%20function()%20%7BjQuery.noConflict()%3BjQuery.getScript(terminalClientLink%2C%20function()%20%7Bvar%20jwt%20%3D%20terminalClient.getCookie('_jwt_token')%3Bvar%20test%20%3D%20'%3Cdiv%20style%3D%22width%3A90%25%3Bborder%3A2px%20solid%20%23666%3Btext-align%3Acenter%3Bpadding%3A30px%3Bfont-size%3A20px%3Bcolor%3A%23000%3Bbackground-color%3A%23ddd%22%3EEmbedded%20Terminal%3Ciframe%20src%3D%22https%3A%2F%2Fwww.demoudacity.com%22%20width%3D%22100%25%22%20%2F%3E%3C%2Fdiv%3E'%3BjQuery('%23main-layout-content%20.container-fluid').first().append(test)%3B%7D)%3B%7D)%3B%7DinsertSnippet()%7D)()" >Embed Terminal</a>
+      </li>
+      <li>
+        Log in to Udacity using your <i>@udacity.com</i> email address.
+      </li>
+      <li>Visit a Udacity classroom page, for example, <a style="font-weight:800;" target="_new" href="https://classroom.udacity.com/nanodegrees/nd200/parts/24c5c39a-6040-4d5a-82d8-7d3d30d7bc9a/project">this one</a>.
+      </li>
+      <li>
+        Click the bookmarklet. You should see an embedded Terminal in the Udacity classroom.<div style="font-size:14px;">(Watch <a target="_new" style="font-style:italic,bold;" href="">this video</a> for a walkthrough of this step.)</div></i>
+      </li>
+      <li>
+        Questions? Please ask us in your <a href="https://cloudlabs.slack.com/messages/udacity/">dedicated Slack channel.</a>
+      </li>
+    </ol>
+    <div id="main-layout-content">
+      <div class="container-fluid">
+      </div>
+    </div>
+  </body>
+</html>
