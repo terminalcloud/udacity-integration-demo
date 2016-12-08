@@ -17,9 +17,9 @@ function insertSnippet() {
     jQuery.getScript(terminalClientLink, function() {
       var jwt = terminalClient.getCookie('_jwt_token');
 
-      var test = '<div style="width:90%;border:2px solid #666;text-align:center;padding:30px;font-size:20px;color:#000;background-color:#ddd">Embedded Terminal<iframe src="https://www.demoudacity.com" width="100%" /></div>';
-      jQuery('#main-layout-content .container-fluid').first().append(test);
-
+      var test = '<iframe id="terminal" src="http://localhost:3000" frameborder="0" width="100%" height="500px" />';
+      jQuery('#main-layout-content').first().append(test);
+      jQuery('iframe#terminal').attr("frameborder", 0)
     });
   });
 }
