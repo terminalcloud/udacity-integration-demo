@@ -3,7 +3,10 @@ const webpack = require('webpack')
 
 module.exports = {
   devtool: 'source-map',
-  entry: './index.js',
+  entry: {
+    main: './index.js',
+    bookmarklet: './bookmarklet/index.js'
+  },
   output: {
     path: path.join(__dirname, 'static'),
     filename: '[name].js',
@@ -26,6 +29,10 @@ module.exports = {
       {
         test: /\.sass$/,
         loaders: ['style', 'css', 'sass']
+      },
+      {
+        test: /\.bookmarklet.js$/,
+        loaders: ['bookmarklet-loader', 'babel-loader']
       },
       {
         test: /\.(png|woff|woff2|eot|ttf|svg)$/,
