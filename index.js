@@ -55,7 +55,7 @@ class Project extends React.Component {
                   weight: 8
                 },
                 {
-                  component: <button className="btn btn-primary" onClick={() => this.run()}>Run Code!</button>,
+                  component: <div id="runcode_container" className="panel"><button className="btn btn-primary" onClick={() => this.run()}>Run Code!</button></div>,
                   key: 'run-button',
                   weight: 1
                 }
