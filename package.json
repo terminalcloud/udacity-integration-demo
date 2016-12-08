@@ -7,6 +7,10 @@
     "type": "git",
     "url": "git+https://github.com/terminalcloud/udacity-integration-demo.git"
   },
+  "scripts": {
+    "start": "webpack-dev-server --port 3000",
+    "build": "webpack"
+  },
   "dependencies": {
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.9",
