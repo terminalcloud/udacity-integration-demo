@@ -18,15 +18,25 @@ class Project extends React.Component {
 
   componentDidMount() {
     this.addTestFile()
+
+    this.interval = setInterval(() => {
+      this.editorManager.saveAllFiles()
+    }, 100)
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval)
   }
 
   run() {
-    this.terminalManager.destroyTerm(this.terminalManager.getCurrentTermId())
-    this.terminalManager.newTerm('test code', '/bin/bash', ['-c', 'python /home/test.py']);
+    this.editorManager.saveAllFiles().then(() => {
+      this.terminalManager.destroyTerm(this.terminalManager.getCurrentTermId())
+      this.terminalManager.newTerm('test code', '/usr/bin/python', ['-i', '/home/test.py'])
+    })
   }
 
   addTestFile() {
-    this.terminalManager.newTerm('create test file', '/bin/bash', ['-c', 'touch /home/test.py']);
+    this.editorManager.openFile('/home/test.py')
   }
 
   render() {
@@ -52,12 +62,12 @@ class Project extends React.Component {
                                  filesManager={this.filesManager}
                                  serverUrl={this.props.serverUrl}/>,
               key: 'editor',
-              weight: 5
+              weight: 6
             },
             {
               component: <Terminal manager={this.terminalManager} serverUrl={this.props.serverUrl}/>,
               key: 'terminal',
-              weight: 5
+              weight: 6
             },
             {
               component: <div><div id="runcode_container" className="panel"><button className="btn btn-primary" onClick={() => this.run()}>Run Code!</button></div></div>,
@@ -108,7 +118,7 @@ function getTerminalAddress(accept, reject) {
 }
 
 new Promise(getTerminalAddress).then((res) => {
-  console.log("terminal address: " + res)
+  console.log("Terminal address: " + res)
   render(res + ':443');
 });
 
