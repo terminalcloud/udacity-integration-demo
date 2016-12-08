@@ -59,8 +59,16 @@
     <hr>
     <h2>Inserting Terminal Javascript Snippets in Coco</h2>
     <ol>
-      <li>Drag this button: <a class="bookmarks-btn" href="javascript:(function()%7Bfunction%20injectScriptAndUse(srcUrl%2C%20cb)%20%7Bvar%20head%20%3D%20document.getElementsByTagName(%22head%22)%5B0%5D%3Bvar%20script%20%3D%20document.createElement(%22script%22)%3Bscript.src%20%3D%20srcUrl%3Bscript.onload%20%3D%20function()%20%7B%20return%20cb()%3B%20%7D%3Bhead.appendChild(script)%3B%7Dfunction%20insertSnippet()%20%7BinjectScriptAndUse('https%3A%2F%2Fcode.jquery.com%2Fjquery-2.2.3.min.js'%2C%20function()%20%7BjQuery.noConflict()%3Bif%20(jQuery(%22textarea%22)%20%26%26%20jQuery(%22textarea%22).first())%20%7Bvar%20theTextArea%20%3D%20jQuery(%22textarea%22).first()%3Bvar%20currentContents%20%3D%20theTextArea.val()%3BtheTextArea.val(currentContents%20%2B%20%22%5Cn%22%20%2B'%3Cdiv%20id%3D%22Terminal_123%22%3E%3C%2Fdiv%3E%20%3C!--%20Editor%20and%20Code%20Testing%20panel%20--%3E'%20%2B%20%22%5Cn%22%20%2B'%3Cdiv%20id%3D%22Terminal_456%22%3E%3C%2Fdiv%3E%20%3C!--%20Interactive%20coding%20panel%20only%20--%3E'%20%2B%20%22%5Cn%22%20%2B'%3Cdiv%20id%3D%22Terminal_789%22%3E%3C%2Fdiv%3E%20%3C!--%20Editor%20only%20--%3E'%20%2B%20%22%5Cn%22)%3B%7D%7D)%3B%7DinsertSnippet()%7D)()" >Insert Snippets</a> &nbsp;&nbsp;&nbsp; to your Chrome bookmarks bar. <div style="font-size:14px;">If you need to do so, click <i>View...Always Show Bookmarks Bar</i> to show the bookmarks bar. (Watch <a target="_new" style="font-style:italic,bold;" href="http://screencast.com/t/wZ2k4cYg">this video</a> for a walkthrough of this step.)</div>
-        
+      <li>Drag this button:
+        <a class="bookmarks-btn"
+           href="javascript:(function()%7Bfunction%20injectScriptAndUse(srcUrl%2C%20cb)%20%7Bvar%20head%20%3D%20document.getElementsByTagName(%22head%22)%5B0%5D%3Bvar%20script%20%3D%20document.createElement(%22script%22)%3Bscript.src%20%3D%20srcUrl%3Bscript.onload%20%3D%20function()%20%7B%20return%20cb()%3B%20%7D%3Bhead.appendChild(script)%3B%7Dfunction%20insertSnippet()%20%7BinjectScriptAndUse('https%3A%2F%2Fcode.jquery.com%2Fjquery-2.2.3.min.js'%2C%20function()%20%7BjQuery.noConflict()%3Bif%20(jQuery(%22textarea%22)%20%26%26%20jQuery(%22textarea%22).first())%20%7Bvar%20theTextArea%20%3D%20jQuery(%22textarea%22).first()%3Bvar%20currentContents%20%3D%20theTextArea.val()%3BtheTextArea.val(currentContents%20%2B%20%22%5Cn%22%20%2B'%3Cdiv%20id%3D%22Terminal_123%22%3E%3C%2Fdiv%3E%20%3C!--%20Editor%20and%20Code%20Testing%20panel%20--%3E'%20%2B%20%22%5Cn%22%20%2B'%3Cdiv%20id%3D%22Terminal_456%22%3E%3C%2Fdiv%3E%20%3C!--%20Interactive%20coding%20panel%20only%20--%3E'%20%2B%20%22%5Cn%22%20%2B'%3Cdiv%20id%3D%22Terminal_789%22%3E%3C%2Fdiv%3E%20%3C!--%20Editor%20only%20--%3E'%20%2B%20%22%5Cn%22)%3B%7D%7D)%3B%7DinsertSnippet()%7D)()"
+           >
+           Insert Snippets
+        </a>
+         &nbsp;&nbsp;&nbsp; to your Chrome bookmarks bar.
+        <div style="font-size:14px;">
+          If you need to do so, click <i>View...Always Show Bookmarks Bar</i> to show the bookmarks bar. (Watch <a target="_new" style="font-style:italic,bold;" href="http://screencast.com/t/wZ2k4cYg">this video</a> for a walkthrough of this step.)
+        </div>
       </li>
       <li>
         Visit Coco and click inside a content textarea.
