@@ -5,3 +5,11 @@ body {
 .btn.btn-default {
   /* background-color:orange ;*/
 }
+
+span.closetab {
+  display: none;
+}
+
+.editor-navbar {
+  display: none;
+}

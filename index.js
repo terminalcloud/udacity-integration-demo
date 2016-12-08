@@ -16,9 +16,17 @@ class Project extends React.Component {
     this.filesManager = new PanelManager()
   }
 
+  componentDidMount() {
+    this.addTestFile()
+  }
+
   run() {
     this.terminalManager.destroyTerm(this.terminalManager.getCurrentTermId())
     this.terminalManager.newTerm('test code', '/bin/bash', ['-c', 'python /home/test.py']);
+  }
+
+  addTestFile() {
+    this.terminalManager.newTerm('create test file', '/bin/bash', ['-c', 'touch /home/test.py']);
   }
 
   render() {
@@ -37,30 +45,24 @@ class Project extends React.Component {
         is_hidden: {},
         maximized: '',
         layout: {
-          type: 'horizontal',
+          type: 'vertical',
           parts: [
             {
               component: <Editor manager={this.editorManager}
                                  filesManager={this.filesManager}
                                  serverUrl={this.props.serverUrl}/>,
               key: 'editor',
-              weight: 3
+              weight: 5
             },
             {
-              type: 'vertical',
-              parts: [
-                {
-                  component: <Terminal manager={this.terminalManager} serverUrl={this.props.serverUrl}/>,
-                  key: 'terminal',
-                  weight: 8
-                },
-                {
-                  component: <div><div id="runcode_container" className="panel"><button className="btn btn-primary" onClick={() => this.run()}>Run Code!</button></div></div>,
-                  key: 'run-button',
-                  weight: 1
-                }
-              ],
-              weight: 2
+              component: <Terminal manager={this.terminalManager} serverUrl={this.props.serverUrl}/>,
+              key: 'terminal',
+              weight: 5
+            },
+            {
+              component: <div><div id="runcode_container" className="panel"><button className="btn btn-primary" onClick={() => this.run()}>Run Code!</button></div></div>,
+              key: 'run-button',
+              weight: 1
             }
           ]
         }
