@@ -1,0 +1,67 @@
+.theme_light
+  #files_container
+    td.file_name a, th.file_name a
+      color: white !important
+    .active, .context-menu-active
+      td.file_name a, th.file_name a
+        color: $ide-dark2 !important
+    .breadcrumbs a
+      color: #07b1e2
+
+#files_container .breadcrumbs
+  padding: 10px
+
+#files_container .fa.fa-fw
+  color: #07b1e2
+
+.theme_light
+  #files_container tr
+    &.active
+      td, th
+        background-color: $ide-dark2
+    &.context-menu-active
+      td, th
+        background-color: $ide-dark2
+  .context-menu-list
+    background-color: #42505b
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.15)
+    border: solid 1px $primary-text-color
+    .context-menu-item
+      color: white
+      &.hover
+        background-color: $udacity-turquoise
+
+#files_container
+  border-bottom: none;
+  td, th
+    padding: 7px
+  .breadcrumbs
+    padding: 17px 10px 7px 12px
+
+.navigate_up
+  display: none
+
+//files modal
+
+#files_modal #files_modal_display .breadcrumbs > li
+  color: white
+
+.theme_light
+  #files_modal #files_modal_display
+    td.file_name a
+      color: #757c81
+    th
+      &.file_name a
+        color: #757c81
+      border-color: #42505b
+  #files_modal #files_modal_display .breadcrumbs a
+    color: $udacity-blue
+
+.theme_light #files_modal .modal-body
+  background-color: white
+  color: #757c81
+
+#files_container, #files_modal #files_modal_display
+  .icon-file:before, .icon-folder:before
+    content: '' !important
+

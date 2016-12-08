@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.7.2 (28276) - http://www.bohemiancoding.com/sketch -->
+    <title>icon_chat-white</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M3.83276367,12 C4.21465595,12 5.90132963,12.8888859 8,12.8888859 C9.68982819,12.8888859 11.878756,12 12.1898804,12 C14.4317232,12.7423477 15.7953985,20.0292028 15.7953985,20.0292028 C15.9083968,20.5652245 15.5553691,20.9997559 14.9991283,20.9997559 L1.00087166,20.9997559 C0.448105505,20.9997559 0.0795680746,20.5537373 0.184959531,20.0127348 C0.184959531,20.0127348 1.35160558,12.7423477 3.83276367,12 Z" id="path-1"></path>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="15.6494799" height="8.99975586" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <ellipse id="path-3" cx="8" cy="5.5" rx="5" ry="5.5"></ellipse>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="10" height="11" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+        <path d="M0,2.9876709 L0,0.994851149 C0,0.445410031 0.448920205,0 1.00748397,0 L13.992516,0 C14.5489341,0 15,0.449948758 15,1.00684547 L15,12.9931545 C15,13.5492199 14.5566468,14 13.9906311,14 L11,14 L6.92715337,15.6285025 C6.41402202,15.8336749 5.99804688,15.5430816 5.99804688,14.994882 L5.99804688,12.0168457" id="path-5"></path>
+        <mask id="mask-6" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="15" height="15.6944705" fill="white">
+            <use xlink:href="#path-5"></use>
+        </mask>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon_get-help">
+            <g id="icon-get-help">
+                <g id="shape" transform="translate(4.000000, 5.000000)">
+                    <g id="person" transform="translate(0.000000, 2.000000)" stroke="#FFFFFF" stroke-width="4">
+                        <use id="Rectangle-216" mask="url(#mask-2)" xlink:href="#path-1"></use>
+                        <use id="Oval-116" mask="url(#mask-4)" xlink:href="#path-3"></use>
+                    </g>
+                    <g id="icon" transform="translate(8.000000, 0.000000)">
+                        <rect id="fill" fill="#FFFFFF" x="5" y="4" width="6" height="2"></rect>
+                        <rect id="fill" fill="#FFFFFF" x="7" y="8" width="4" height="2"></rect>
+                        <use id="Rectangle-91" stroke="#FFFFFF" mask="url(#mask-6)" stroke-width="4" xlink:href="#path-5"></use>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

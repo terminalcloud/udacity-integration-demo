@@ -1,0 +1,76 @@
+#chat_container
+  background-color: white
+
+.theme_light
+  #chat_container
+    .chat-name
+      [name="name"], [name="message"]
+        background-color: white
+        box-shadow: none
+        border: none
+    .chat-input
+      [name="name"], [name="message"]
+        background-color: white
+        box-shadow: none
+        border: none
+
+.chat-input-area
+  border-top: solid 1px #dbe2e8;
+  input
+    padding: 14px 20px
+    height: 50px
+    border: none
+
+#chat-session-status
+  color: #58646d
+  font-weight: 600
+#chat-session-question-container
+  margin-top: 10px
+  p
+    margin: 0
+
+.chat-help-section
+  display: flex
+  flex-direction: column
+  height: calc(100% - 63px)
+
+  h3
+    text-align: center
+
+  .secondary-box-action
+    flex-shrink: 0
+    flex-grow: 0
+
+  .chat-help
+    flex-grow: 1
+    flex-shrink: 1
+
+    display: flex
+    flex-direction: column
+
+    .chat-area
+      flex-grow: 1
+      flex-shrink: 1
+      ul
+        padding-top: 0px
+      li
+        p
+          background-color: #f5f7f8
+          color: $primary-text-color
+          padding: 15px
+          margin-top: 20px
+        &.myself p
+          background-color: $udacity-blue
+          color: white
+          &:after
+            border-color: transparent transparent transparent $udacity-blue
+      .date-li
+        span
+          color: $udacity-gray2
+          text-transform: uppercase
+          letter-spacing: 1px
+        &:after
+          background-color: #dbe2e8
+          height: 2px
+      .meta
+        color: $udacity-gray2

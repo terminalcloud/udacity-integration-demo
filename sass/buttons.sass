@@ -1,0 +1,87 @@
+.btn
+  text-transform: uppercase
+  font-family: 'Open Sans'
+  font-weight: 600
+  font-size: 12px
+  border-radius: 4px
+  letter-spacing: 0.9px
+  box-shadow: none
+  text-shadow: none
+  -webkit-font-smoothing: antialiased
+  &.btn-hollow
+    border: solid 1px $udacity-blue
+    color: $primary-text-color
+    &.btn-danger
+      background: transparent
+      border: solid 1px $udacity-red
+      color: $udacity-red
+  &.btn-large
+    padding: 16px 8px
+  &.btn-primary
+    background-color: $udacity-blue
+    border: solid 1px $udacity-blue
+    color: #ffffff
+    &:hover, &:active, &:focus
+      background-color: #039dc7
+  &.disabled
+    opacity: 0.35
+
+.btn-hollow
+  background-color: white
+
+.btn-danger
+  background-color: $udacity-red
+  border: 1px solid $udacity-red
+
+.btn-secondary
+  background-color: $udacity-gray2
+  &:hover
+    color: white
+    background-color: #607e97
+
+.btn-boxed
+  text-align: center
+  background-color: transparent
+  letter-spacing: 1px
+  overflow: hidden
+  text-overflow: ellipsis
+  color: $udacity-blue
+  height: $boxed-actions-height
+  width: 100%
+  padding: 0
+  span
+    vertical-align: middle
+  &:hover
+    color: $primary-text-color
+
+.btn-transparent
+  background-color: rgba(0, 0, 0, 0.5)
+  padding: 5px
+  border-radius: 2px
+  cursor: pointer
+  &:hover
+    background-color: rgba(0, 0, 0, 0.3)
+
+.box-action
+  border-right: solid 1px #dbe2e8
+  border-bottom: solid 2px #dbe2e8
+  width: 50%
+  display: inline-block
+  + .box-action
+   border-right: 0
+   border-left: solid 1px #dbe2e8
+
+.secondary-box-action
+  box-shadow: 0 1px 2px 0 rgba(46, 60, 73, 0.1), inset 0 -1px 0 0 #dbe2e8
+  padding: 10px 20px
+
+//this might belong elsewhere
+.help-box
+  .box-action
+    width: 100%
+  .btn-boxed
+    text-align: left
+    padding-left: 20px
+    display: inline-block
+    width: auto
+

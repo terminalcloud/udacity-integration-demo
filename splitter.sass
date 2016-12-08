@@ -1,0 +1,42 @@
+/* adds default splits*/
+
+.split_top_html_container, .split_top_terminal_container
+  height: 30px;
+  background-color: #2e3d49
+  border: none
+  border-top: 1px solid #42505b
+  opacity: 1
+
+  &:before
+    content: ' '
+    background-image: url('./images/handle-horiz@2x.png')
+    width: 15px
+    height: 6px
+    display: block
+    background-size: 15px 6px
+    background-repeat: no-repeat
+    margin: auto
+    margin-top: 12px
+
+.split_right_content_container, .split_right_workbench_container
+  opacity: 1
+  background-color: #dbe2e8
+  border: none
+  z-index: 102
+
+  &:before
+    content: ''
+    width: 5px
+    height: 9px
+    background-image: url('./images/handle-vertical@2x.png')
+    background-size: 5px 9px
+    position: absolute
+    top: 50%
+    right: 2px
+
+.split_right_files_container.split_left_editor_container
+  width: 1px
+
+.split_top_runcode_container
+  height: 0px
+  cursor: default

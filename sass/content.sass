@@ -1,0 +1,55 @@
+//content panel
+
+.content-flex
+  height: 100%
+  display: flex
+  flex-direction: column
+
+.lesson-content
+  flex-grow: 1
+  display: flex
+  flex-direction: column
+
+.lesson-wrapper
+  flex-grow: 1
+  display: flex
+  flex-direction: column
+  overflow: auto
+  -webkit-overflow-scrolling: touch
+
+.lesson-navigation
+  height: 50px
+  width: 100%
+  line-height: 50px
+  text-align: center
+
+.lesson-arrows
+  margin: auto
+  color: $udacity-gray2
+  cursor: pointer
+
+.return-button
+  font-family: 'Open Sans'
+  padding: 9px
+  background-color: $udacity-gray2
+  width: 100%
+  color: white
+  text-transform: uppercase
+  -webkit-font-smoothing: antialiased
+  font-size: 12px
+  letter-spacing: 1px
+  font-weight: 600
+  flex: 0 0 44px
+  cursor: pointer
+
+.lesson-actions
+  border-top: solid 1px #dbe2e8
+  flex: 0 0
+  flex-basis: auto
+  flex-shrink: 0
+  .btn
+    display: block
+    width: 100%
+    padding: 14px 0
+  .btn + .btn
+    margin-top: 14px

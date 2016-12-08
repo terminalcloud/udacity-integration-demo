@@ -1,0 +1,50 @@
+//Variables
+
+$udacity-blue: #02b3e4
+$udacity-gray2: #7d97ad
+$udacity-red: #f95c3c
+$udacity-turquoise: #02ccba
+
+$ide-dark: #23323e
+$ide-dark2: #2e3d4b
+$primary-text-color: #2e3d49
+
+$boxed-actions-height: 61px
+
+//Mixins
+
+@mixin make-image($file, $type, $width, $height)
+  $path: './images/'
+  background-image: url($path + $file + '.' + $type)
+  background-size: $width $height
+  width: $width
+  height: $height
+
+a:hover
+  cursor: pointer
+
+//Utility classes
+
+.dashed-border
+  border: 2px dashed grey
+  padding: 5px
+  width: 100%
+  margin: 0px
+
+.full-height
+  height: 100%
+
+.scrollable
+  overflow: auto
+  position: relative
+
+.inline-block
+  display: inline-block
+
+.flex
+  display: flex
+
+.disabled
+  opacity: .4
+  pointer-events: none
+  cursor: not-allowed

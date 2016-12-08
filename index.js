@@ -29,6 +29,9 @@ class Project extends React.Component {
     }
 
     return <div className='theme_light' style={layoutBoxStyle}>
+      <div style={{ display: 'none' }}>
+        <Files manager={this.filesManager} editorManager={this.editorManager} serverUrl={this.props.serverUrl}/>
+      </div>
       <Layout layout={{
         override: true,
         is_hidden: {},
@@ -36,11 +39,6 @@ class Project extends React.Component {
         layout: {
           type: 'horizontal',
           parts: [
-            {
-              component: <Files manager={this.filesManager} editorManager={this.editorManager} serverUrl={this.props.serverUrl}/>,
-              key: 'files',
-              weight: 1
-            },
             {
               component: <Editor manager={this.editorManager}
                                  filesManager={this.filesManager}
@@ -57,7 +55,7 @@ class Project extends React.Component {
                   weight: 8
                 },
                 {
-                  component: <button onClick={() => this.run()}>Run Code!</button>,
+                  component: <button className="btn btn-primary" onClick={() => this.run()}>Run Code!</button>,
                   key: 'run-button',
                   weight: 1
                 }

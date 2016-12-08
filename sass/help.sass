@@ -1,0 +1,133 @@
+.content-panel-sm
+  .box-action
+    width: 100%
+    border-right: none
+  .warning-pane
+    top: 2 * $boxed-actions-height
+  .help-resources-info
+    padding: 100px 20px 0
+  .request-form
+    padding: 35px 20px 0
+  .rating:not(:checked)>label
+    width: 30px
+    margin: 3px
+    &:before
+      background-size: 30px 30px
+      width: 30px
+      height: 30px
+  #curriculum-wrapper
+    height: calc(100% - #{$boxed-actions-height*2 + 50})
+.content-panel-xs
+  #help-content
+    .btn
+      white-space: normal
+      font-size: 10px
+      &.btn-large
+        padding: 8px 8px
+
+
+.scrollable-help-area
+  height: 100%
+  overflow-Y: auto
+
+.help-resources-info
+  text-align: center
+  margin: auto
+  padding: 100px 40px 0 40px
+  height: 800px
+
+.content-help-area
+  padding: 40px
+  width: 100%
+  bottom: 0
+
+.rating-details
+  font-weight: 600
+
+.request-form
+  padding: 35px 40px 0 40px
+
+#help-content
+  height: 100%
+#help-pane
+ // height: calc(100% - #{$boxed-actions-height})
+
+#help-box-container
+  display: flex
+  #help-box-button
+    flex-grow: 1
+
+.warning-pane
+  position: absolute
+  background-color: white
+  top: $boxed-actions-height
+  height: 100%
+  text-align: center
+  width: 100%
+  z-index: 102
+
+
+// rating stars
+
+label.form-label
+  font-weight: 600
+  font-size: 16px
+  color: $primary-text-color
+
+fieldset
+  border: none
+  display: inline
+
+/* :not(:checked) is a filter, so that browsers that don’t support :checked don’t
+ * follow these rules. Every browser that supports :checked also supports :not(), so
+ * it doesn’t make the test unnecessarily selective */
+
+.rating
+  &:not(:checked)
+    >
+      input
+        position: absolute
+        top: -9999px
+        clip: rect(0, 0, 0, 0)
+      label
+        float: right
+        width: 39px
+        margin: 4px
+        overflow: hidden
+        white-space: nowrap
+        cursor: pointer
+        font-size: 200%
+        line-height: 1.2
+        color: #ddd
+        &:before
+          content: ''
+          background-image: url('./images/gray-star@2x.png')
+          background-size: 39px 38px
+          background-repeat: no-repeat
+          width: 39px
+          height: 38px
+          display: inline-block
+          vertical-align: middle
+    > label:hover
+      &:before, ~ label:before
+        background-image: url('./images/yellow-star@2x.png')
+  > input:checked
+    ~ label:before
+      background-image: url('./images/yellow-star@2x.png')
+    > label:hover ~ label:before
+      background-image: url('./images/gray-star@2x.png')
+    ~ label
+      color: #ecc81a
+  >
+    input:checked
+      + label:hover ~ label:before, ~ label:hover ~ label:before
+        background-image: url('./images/yellow-star@2x.png')
+    label
+      &:hover ~ input:checked ~ label:before
+        background-image: url('./images/yellow-star@2x.png')
+      &:active
+        position: relative
+        top: 2px
+        left: 2px
+
+
