@@ -1,11 +1,12 @@
 const path = require('path')
 const webpack = require('webpack')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 module.exports = {
   devtool: 'source-map',
   entry: {
     main: './index.js',
-    bookmarklet: './bookmarklet/index.js'
+    'project-bookmarklet': './bookmarklet/project.bookmarklet.js'
   },
   output: {
     path: path.join(__dirname, 'static'),
@@ -13,10 +14,16 @@ module.exports = {
     publicPath: 'http://localhost:3000/static/'
   },
   plugins: [
+    new CleanWebpackPlugin(['static'], { verbose: false }),
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    }),
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': JSON.stringify('development')
+        'NODE_ENV': JSON.stringify('production')
       }
     })
   ],
@@ -29,10 +36,6 @@ module.exports = {
       {
         test: /\.sass$/,
         loaders: ['style', 'css', 'sass']
-      },
-      {
-        test: /\.bookmarklet.js$/,
-        loaders: ['bookmarklet-loader', 'babel-loader']
       },
       {
         test: /\.(png|woff|woff2|eot|ttf|svg)$/,
