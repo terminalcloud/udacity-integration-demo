@@ -2,6 +2,10 @@
 
 const { components, bootstrap, parseUrl, PanelManager, bootstrapHotkeys } = WebTerminal
 const { Terminal, Files, Editor, Layout } = components
+const React = require('react')
+const ReactDOM = require('react-dom')
+
+require('./index.sass')
 
 class Project extends React.Component {
   componentWillMount() {
