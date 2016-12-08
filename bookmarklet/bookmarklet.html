@@ -28,7 +28,18 @@
   <body style="font-size:22px;margin:5px;line-height:30px;">
     <h2>Embedding Terminals in Udacity Classroom</h2>
     <ol>
-        <li>Drag this button: <a class="bookmarks-btn" href="javascript:(function()%7Bvar%20cdn_url%20%3D%20'https%3A%2F%2Fstorage.googleapis.com%2Fedu-content%2F0.0.13%2Fpublic'%3Bvar%20terminalClientLink%20%20%20%20%20%3D%20cdn_url%20%2B%20'%2Flib%2FterminalClient.js'%3Bfunction%20injectScriptAndUse(srcUrl%2C%20cb)%20%7Bvar%20head%20%3D%20document.getElementsByTagName(%22head%22)%5B0%5D%3Bvar%20script%20%3D%20document.createElement(%22script%22)%3Bscript.src%20%3D%20srcUrl%3Bscript.onload%20%3D%20function()%20%7B%20return%20cb()%3B%20%7D%3Bhead.appendChild(script)%3B%7Dfunction%20insertSnippet()%20%7BinjectScriptAndUse('https%3A%2F%2Fcode.jquery.com%2Fjquery-2.2.3.min.js'%2C%20function()%20%7BjQuery.noConflict()%3BjQuery.getScript(terminalClientLink%2C%20function()%20%7Bvar%20jwt%20%3D%20terminalClient.getCookie('_jwt_token')%3Bvar%20test%20%3D%20'%3Ciframe%20src%3D%22http%3A%2F%2Flocalhost%3A3000%22%20width%3D%22100%25%22%20height%3D%22500px%22%2F%3E'%3BjQuery('%23main-layout-content%20.container-fluid').first().append(test)%3B%7D)%3B%7D)%3B%7DinsertSnippet()%7D)()" >Embed Terminal</a>&nbsp;&nbsp;&nbsp;to your Chrome Bookmarks Bar. <div style="font-size:14px;">If you need to do so, click <i>View...Always Show Bookmarks Bar</i> to show the bookmarks bar. <br>Watch <a target="_new" style="font-style:italic,bold;" href="http://screencast.com/t/wZ2k4cYg">this video</a> for a walkthrough of this step:<br>
+        <li>Drag this button:
+          <a class="bookmarks-btn"
+             href="javascript:(function()%7Bvar%20cdn_url%20%3D%20'https%3A%2F%2Fstorage.googleapis.com%2Fedu-content%2F0.0.13%2Fpublic'%3Bvar%20terminalClientLink%20%20%20%20%20%3D%20cdn_url%20%2B%20'%2Flib%2FterminalClient.js'%3Bfunction%20injectScriptAndUse(srcUrl%2C%20cb)%20%7Bvar%20head%20%3D%20document.getElementsByTagName(%22head%22)%5B0%5D%3Bvar%20script%20%3D%20document.createElement(%22script%22)%3Bscript.src%20%3D%20srcUrl%3Bscript.onload%20%3D%20function()%20%7B%20return%20cb()%3B%20%7D%3Bhead.appendChild(script)%3B%7Dfunction%20insertSnippet()%20%7BinjectScriptAndUse('https%3A%2F%2Fcode.jquery.com%2Fjquery-2.2.3.min.js'%2C%20function()%20%7BjQuery.noConflict()%3BjQuery.getScript(terminalClientLink%2C%20function()%20%7Bvar%20jwt%20%3D%20terminalClient.getCookie('_jwt_token')%3Bvar%20test%20%3D%20'%3Ciframe%20src%3D%22http%3A%2F%2Flocalhost%3A3000%22%20width%3D%22100%25%22%20height%3D%22500px%22%2F%3E'%3BjQuery('%23main-layout-content%20.container-fluid').first().append(test)%3B%7D)%3B%7D)%3B%7DinsertSnippet()%7D)()"
+             >
+             Embed Terminal
+          </a>&nbsp;&nbsp;&nbsp;to your Chrome Bookmarks Bar.
+          <p>You can try this out on
+            <a href="https://classroom.udacity.com/nanodegrees/nd200/parts/24c5c39a-6040-4d5a-82d8-7d3d30d7bc9a/project">
+              this udacity project page.
+            </a>
+          </p>
+          <div style="font-size:14px;">If you need to do so, click <i>View...Always Show Bookmarks Bar</i> to show the bookmarks bar. <br>Watch <a target="_new" style="font-style:italic,bold;" href="http://screencast.com/t/wZ2k4cYg">this video</a> for a walkthrough of this step:<br>
         <object id="scPlayer"  width="300" height="155" type="application/x-shockwave-flash" data="http://content.screencast.com/users/atlas3650/folders/Jing/media/51c97aeb-6358-469d-b1e4-ae6010968d28/jingswfplayer.swf" >
           <param name="movie" value="http://content.screencast.com/users/atlas3650/folders/Jing/media/51c97aeb-6358-469d-b1e4-ae6010968d28/jingswfplayer.swf" />
           <param name="quality" value="high" />
@@ -66,6 +77,7 @@
            Insert Snippets
         </a>
          &nbsp;&nbsp;&nbsp; to your Chrome bookmarks bar.
+
         <div style="font-size:14px;">
           If you need to do so, click <i>View...Always Show Bookmarks Bar</i> to show the bookmarks bar. (Watch <a target="_new" style="font-style:italic,bold;" href="http://screencast.com/t/wZ2k4cYg">this video</a> for a walkthrough of this step.)
         </div>
