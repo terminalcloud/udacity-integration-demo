@@ -1,10 +1,12 @@
-/* global WebTerminal */
-
+/* global WebTerminal, TERMINAL_DEMO_STAGE */
+window.TERMINAL_DEMO_STAGE = window.TERMINAL_DEMO_STAGE || 'initialize';
 const React = require('react')
 const ReactDOM = require('react-dom')
 const $ = require('jquery')
 const { getTerminal } = require('../util')
 const makeProject = require('../project')
+const makeTerminal = require('../project.terminal.js')
+const makeEditor = require('../project.editor.js')
 
 require('../index.sass')
 
@@ -42,12 +44,42 @@ function render(terminalAddress) {
   const { Terminal, Files, Editor, Layout } = components
 
   const serverUrl = parseUrl(terminalAddress)
-  const Project = makeProject({ bootstrap, PanelManager, Terminal, Editor, Files, Layout })
+  let Project;
+  let terminalNode = document.getElementById('terminal-demo');
 
-  const root = document.getElementById('main-layout-content')
-  const terminalNode = document.createElement('div')
-  terminalNode.id = 'terminal-demo'
-  jQuery(root).append(terminalNode)
+  switch(TERMINAL_DEMO_STAGE) {
+    case 'initialize':
+      // create the dom node for rendering into
+      const root = document.getElementById('main-layout-content')
+      terminalNode = document.createElement('div')
+      terminalNode.id = 'terminal-demo'
+      jQuery(root).append(terminalNode)
+
+      TERMINAL_DEMO_STAGE = 'project'
+      //falls through
+    case 'project':
+      console.log(TERMINAL_DEMO_STAGE)
+      Project = makeProject({ bootstrap, PanelManager, Terminal, Editor, Files, Layout })
+      TERMINAL_DEMO_STAGE = 'editor'
+      break;
+    case 'editor':
+      console.log(TERMINAL_DEMO_STAGE)
+      Project = makeEditor({ bootstrap, PanelManager, Terminal, Editor, Files, Layout })
+      TERMINAL_DEMO_STAGE = 'terminal'
+      break;
+    case 'terminal':
+      console.log(TERMINAL_DEMO_STAGE)
+      Project = makeTerminal({ bootstrap, PanelManager, Terminal, Editor, Files, Layout })
+      TERMINAL_DEMO_STAGE = 'project'
+      break;
+
+    default:
+      console.log('broke', TERMINAL_DEMO_STAGE)
+  }
+
+  // empty the demo container
+  // terminalNode.innerHTML = '';
+
   ReactDOM.render(<Project serverUrl={parseUrl(serverUrl)}/>, terminalNode);
 }
 

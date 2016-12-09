@@ -4,8 +4,7 @@ module.exports = function ({ bootstrap, PanelManager, Terminal, Editor, Files, L
   class Project extends React.Component {
     componentWillMount() {
       bootstrap(this.props.serverUrl)
-      console.log('full project')
-      this.terminalManager = new PanelManager()
+      console.log('project editor only')
       this.editorManager = new PanelManager()
       this.filesManager = new PanelManager()
     }
@@ -15,10 +14,7 @@ module.exports = function ({ bootstrap, PanelManager, Terminal, Editor, Files, L
     }
 
     run() {
-      this.editorManager.saveAllFiles().then(() => {
-        this.terminalManager.destroyTerm(this.terminalManager.getCurrentTermId())
-        this.terminalManager.newTerm('test code', '/usr/bin/python', ['-i', '/home/test.py'])
-      })
+      this.editorManager.saveAllFiles()
     }
 
     addTestFile() {
@@ -48,18 +44,8 @@ module.exports = function ({ bootstrap, PanelManager, Terminal, Editor, Files, L
                                    filesManager={this.filesManager}
                                    serverUrl={this.props.serverUrl}/>,
                 key: 'editor',
-                weight: 6
-              },
-              {
-                component: <Terminal manager={this.terminalManager} serverUrl={this.props.serverUrl}/>,
-                key: 'terminal',
-                weight: 6
-              },
-              {
-                component: <div><div id="runcode_container" className="panel"><button className="btn btn-primary" onClick={() => this.run()}>Run Code!</button></div></div>,
-                key: 'run-button',
                 weight: 1
-              }
+              },
             ]
           }
         }}/>
