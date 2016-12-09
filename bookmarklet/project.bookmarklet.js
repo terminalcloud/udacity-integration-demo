@@ -77,9 +77,6 @@ function render(terminalAddress) {
       console.log('broke', TERMINAL_DEMO_STAGE)
   }
 
-  // empty the demo container
-  // terminalNode.innerHTML = '';
-
   ReactDOM.render(<Project serverUrl={parseUrl(serverUrl)}/>, terminalNode);
 }
 
