@@ -12,14 +12,6 @@ module.exports = function ({ bootstrap, PanelManager, Terminal, Editor, Files, L
 
     componentDidMount() {
       this.addTestFile()
-
-      this.interval = setInterval(() => {
-        this.editorManager.saveAllFiles()
-      }, 100)
-    }
-
-    componentWillUnmount() {
-      clearInterval(this.interval)
     }
 
     run() {
