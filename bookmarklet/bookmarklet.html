@@ -50,7 +50,12 @@
         a React component is rendered into that div. The component is itself
         made up of several smaller modular components such as "<b>files browser</b>",
         "<b>file editor</b>", "<b>terminal</b>", "<b>preview pane</b>", and so on, which can
-        themselves be used independently of one another. At the top level,
+        themselves be used independently of one another. In addition, the components can be rearranged
+        and separated as best fits your instructional layouts, and can communicate with each other even
+        if physically separated on the page. For instance, you could include a button that changes the 
+        source code file the student is looking at in the editor, or unfolds some code.</p>
+      
+      <p>At the top level,
         there is a flexible layout engine that allows resizing of the various
         panels.</p>
 
@@ -92,7 +97,9 @@
           Log in to Udacity using your <i>@udacity.com</i> email address.
         </li>
         <li>Visit this Udacity classroom <a style="font-weight:800;" target="_new" href="https://classroom.udacity.com/nanodegrees/nd200/parts/24c5c39a-6040-4d5a-82d8-7d3d30d7bc9a/project">page</a></li>
-        <li>Click the bookmarklet</li>
+        <li>Click the bookmarklet. This will render the code editor and code tester into the browser in Udacity's page. If you click 
+        the bookmarklet again, it will re-render with only the editor, and other click, it will re-render with only the Python interpreter.
+        We did this so you can see how simple it will be to include various configurations of the Terminal components.</li>
       </ol>
   </body>
 </html>
