@@ -8,7 +8,9 @@ const makeProject = require('../project')
 const makeTerminal = require('../project.terminal.js')
 const makeEditor = require('../project.editor.js')
 
-require('../index.sass') //ideally this is only conditionally when we are in the initialize stage.
+if (TERMINAL_DEMO_STAGE === 'initialize') {
+  require('../index.sass')
+}
 
 // try this on: https://classroom.udacity.com/nanodegrees/nd200/parts/24c5c39a-6040-4d5a-82d8-7d3d30d7bc9a/project
 
