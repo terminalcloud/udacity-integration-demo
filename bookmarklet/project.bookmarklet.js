@@ -8,7 +8,7 @@ const makeProject = require('../project')
 const makeTerminal = require('../project.terminal.js')
 const makeEditor = require('../project.editor.js')
 
-require('../index.sass')
+require('../index.sass') //ideally this is only conditionally when we are in the initialize stage.
 
 // try this on: https://classroom.udacity.com/nanodegrees/nd200/parts/24c5c39a-6040-4d5a-82d8-7d3d30d7bc9a/project
 
@@ -32,10 +32,13 @@ function loadWebTerminal() {
     'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'
   ]
 
-  const getScript = (script) => Promise.resolve($.getScript(script))
-  const getStyle = (path) => $('<link/>', { rel: 'stylesheet', type: 'text/css', href: path }).appendTo('head')
+  if (TERMINAL_DEMO_STAGE === 'initialize') {
+    console.log('append scripts and stylesheets')
+    const getStyle = (path) => $('<link/>', { rel: 'stylesheet', type: 'text/css', href: path }).appendTo('head')
+    styles.forEach(getStyle)
+  }
 
-  styles.forEach(getStyle)
+  const getScript = (script) => Promise.resolve($.getScript(script))
   return Promise.all(scripts.map(getScript))
 }
 
@@ -49,6 +52,7 @@ function render(terminalAddress) {
 
   switch(TERMINAL_DEMO_STAGE) {
     case 'initialize':
+      console.log('stage: ', TERMINAL_DEMO_STAGE)
       // create the dom node for rendering into
       const root = document.getElementById('main-layout-content')
       terminalNode = document.createElement('div')
@@ -58,17 +62,17 @@ function render(terminalAddress) {
       TERMINAL_DEMO_STAGE = 'project'
       //falls through
     case 'project':
-      console.log(TERMINAL_DEMO_STAGE)
+      console.log('stage: ', TERMINAL_DEMO_STAGE)
       Project = makeProject({ bootstrap, PanelManager, Terminal, Editor, Files, Layout })
       TERMINAL_DEMO_STAGE = 'editor'
       break;
     case 'editor':
-      console.log(TERMINAL_DEMO_STAGE)
+      console.log('stage: ', TERMINAL_DEMO_STAGE)
       Project = makeEditor({ bootstrap, PanelManager, Terminal, Editor, Files, Layout })
       TERMINAL_DEMO_STAGE = 'terminal'
       break;
     case 'terminal':
-      console.log(TERMINAL_DEMO_STAGE)
+      console.log('stage: ', TERMINAL_DEMO_STAGE)
       Project = makeTerminal({ bootstrap, PanelManager, Terminal, Editor, Files, Layout })
       TERMINAL_DEMO_STAGE = 'project'
       break;
