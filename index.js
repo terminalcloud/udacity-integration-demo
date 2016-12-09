@@ -1,5 +1,4 @@
 /* global WebTerminal */
-//TODO: DELETEME! We no longer use Index.js
 
 const { components, bootstrap, parseUrl, PanelManager, bootstrapHotkeys } = WebTerminal
 const { Terminal, Files, Editor, Layout } = components
