@@ -22,25 +22,49 @@
        color:#fff;
        text-decoration:none;
      }
+     body { font-size:22px;margin:5px;line-height:30px; }
     </style>
   </head>
 
   <body>
-    <div style="font-size:22px;margin:5px;line-height:30px;">
-      <h2>Embedding Terminals in Udacity Classroom</h2>
-      <ol>
-        <li>Drag this button:
-          <a class="bookmarks-btn"
-            href="javascript:(function()%7Bfunction%20callback()%7B(function(%24)%7Bvar%20jQuery%3D%24%3Bfunction%20callback()%7Bconsole.log('hello')%7Dvar%20s%3Ddocument.createElement(%22script%22)%3Bs.src%3D%22http%3A%2F%2Flocalhost%3A3000%2Fstatic%2Fproject-bookmarklet.js%22%3Bif(s.addEventListener)%7Bs.addEventListener(%22load%22%2Ccallback%2Cfalse)%7Delse%20if(s.readyState)%7Bs.onreadystatechange%3Dcallback%7Ddocument.body.appendChild(s)%3B%7D)(jQuery.noConflict(true))%7Dvar%20s%3Ddocument.createElement(%22script%22)%3Bs.src%3D%22https%3A%2F%2Fajax.googleapis.com%2Fajax%2Flibs%2Fjquery%2F1.7.1%2Fjquery.min.js%22%3Bif(s.addEventListener)%7Bs.addEventListener(%22load%22%2Ccallback%2Cfalse)%7Delse%20if(s.readyState)%7Bs.onreadystatechange%3Dcallback%7Ddocument.body.appendChild(s)%3B%7D)()"
-          >
-            Embed Terminal
-          </a>&nbsp;&nbsp;&nbsp;to your Chrome Bookmarks Bar.
-          <p>You can try this out on
-            <a href="https://classroom.udacity.com/nanodegrees/nd200/parts/24c5c39a-6040-4d5a-82d8-7d3d30d7bc9a/project">
-              this udacity project page.
-            </a>
-          </p>
-          <div style="font-size:14px;">If you need to do so, click <i>View...Always Show Bookmarks Bar</i> to show the bookmarks bar. <br>Watch <a target="_new" style="font-style:italic,bold;" href="http://screencast.com/t/wZ2k4cYg">this video</a> for a walkthrough of this step:<br>
+    <div>
+      <h1>Terminal Integration Demo </h1>
+        <p>The purpose of this demo is to illustrate that our code allows us to inject a <b>configurable collaborative web IDE</b> into any webpage.</p>
+
+        <h3>Behind the scenes, the system is:</h3>
+        <ul>
+          <li>using Udacity's JWT to authenticate with our servers</li>
+          <li> allocating an isolated hosted environment in the cloud</li>
+          <li>connecting to that environment, and cloud storage, to continuously save files and execute code on demand by the user</li>
+        </ul>
+
+        <h3>On the front end:</h3>
+        <p>
+        The Bookmarklet injects our javascript library into the page, and a div
+        into the DOM at a location specific to Udacity's layout. Subsquently,
+        a React component is rendered into that div. The component is itself
+        made up of several smaller modular components such as "<b>files browser</b>",
+        "<b>file editor</b>", "<b>terminal</b>", "<b>preview pane</b>", and so on, which can
+        themselves be used independently of one another. At the top level,
+        there is a flexible layout engine that allows resizing of the various
+        panels.</p>
+
+        <p>
+        The component panels don't have to be next to each other or even laid
+        out by our layout engine, that's just what's happening in this one
+        example.  You can also have several instances of any particular panel
+        and you can script your own complex interactions between panels and
+        between your own code and the panels.</p>
+
+        <p>
+        We threw together this demo to show how quickly and easily Terminal's
+        IDE could be integrated into Udacity's coursework.
+        </p>
+ 
+      </div>
+
+      <h2>DEMO Video</h2>
+          <div style="font-size:14px;">If you need to do so, click <i>View...Always Show Bookmarks Bar</i> to show the bookmarks bar. <br>Watch <a target="_new" style="font-style:italic,bold;" href="http://screencast.com/t/wZ2k4cYg">this video</a> for a walkthrough:<br>
             <object id="scPlayer"  width="300" height="155" type="application/x-shockwave-flash" data="http://content.screencast.com/users/atlas3650/folders/Jing/media/51c97aeb-6358-469d-b1e4-ae6010968d28/jingswfplayer.swf" >
               <param name="movie" value="http://content.screencast.com/users/atlas3650/folders/Jing/media/51c97aeb-6358-469d-b1e4-ae6010968d28/jingswfplayer.swf" />
               <param name="quality" value="high" />
@@ -53,32 +77,28 @@
               Unable to display content. Adobe Flash is required.
             </object>
           </div>
-          <div id="links" style="">
-            <a style="line-height:55px;background-color:blue;padding:10px;margin:0px20px0px20px;color:#fff;border-radius:5px;font-weight:800;text-decoration:none;" id="bookmarklet-1">
-              Embed Project
+
+      <h2>DEMO Bookmarklet</h2>
+      <ol>
+        <li>Drag this button:
+          <a class="bookmarks-btn"
+            href="javascript:(function()%7Bfunction%20callback()%7B(function(%24)%7Bvar%20jQuery%3D%24%3Bfunction%20callback()%7Bconsole.log('hello')%7Dvar%20s%3Ddocument.createElement(%22script%22)%3Bs.src%3D%22http%3A%2F%2Flocalhost%3A3000%2Fstatic%2Fproject-bookmarklet.js%22%3Bif(s.addEventListener)%7Bs.addEventListener(%22load%22%2Ccallback%2Cfalse)%7Delse%20if(s.readyState)%7Bs.onreadystatechange%3Dcallback%7Ddocument.body.appendChild(s)%3B%7D)(jQuery.noConflict(true))%7Dvar%20s%3Ddocument.createElement(%22script%22)%3Bs.src%3D%22https%3A%2F%2Fajax.googleapis.com%2Fajax%2Flibs%2Fjquery%2F1.7.1%2Fjquery.min.js%22%3Bif(s.addEventListener)%7Bs.addEventListener(%22load%22%2Ccallback%2Cfalse)%7Delse%20if(s.readyState)%7Bs.onreadystatechange%3Dcallback%7Ddocument.body.appendChild(s)%3B%7D)()"
+          >
+            Embed Terminal
+          </a>&nbsp;&nbsp;&nbsp;to your Chrome Bookmarks Bar.
+          <p>You can try this out on
+            <a href="https://classroom.udacity.com/nanodegrees/nd200/parts/24c5c39a-6040-4d5a-82d8-7d3d30d7bc9a/project">
+              this udacity project page.
             </a>
-            <a style="line-height:55px;background-color:blue;padding:10px;color:#fff;border-radius:5px;font-weight:800;text-decoration:none;" id="bookmarklet-2">
-              Embed Terminal
-            </a>
-            <a style="line-height:55px;background-color:blue;padding:10px;color:#fff;border-radius:5px;font-weight:800;text-decoration:none;" id="bookmarklet-3">
-              Embed Editor
-            </a>
-          </div>
+          </p>
         </li>
         <li>
           Log in to Udacity using your <i>@udacity.com</i> email address.
         </li>
-        <li>Visit a Udacity classroom page, for example, <a style="font-weight:800;" target="_new" href="https://classroom.udacity.com/nanodegrees/nd200/parts/24c5c39a-6040-4d5a-82d8-7d3d30d7bc9a/project">this one</a>.
-        </li>
-        <li>
-          Click the bookmarklet.<br>You will see an embedded Terminal in the Udacity classroom. This is the same embedded Terminal that Udacity CD's can embed with Coco content.<div style="font-size:14px;">Watch this video for a walkthrough of the entire process:<br>
-          </div>
-        </li>
+        <li>Visit this Udacity classroom <a style="font-weight:800;" target="_new" href="https://classroom.udacity.com/nanodegrees/nd200/parts/24c5c39a-6040-4d5a-82d8-7d3d30d7bc9a/project">page</a></li>
+        <li>Click the bookmarklet</li>
       </ol>
-      <div id="main-layout-content">
-        <div class="container-fluid">
-        </div>
-      </div>
+      <!--
       <hr>
       <h2>Inserting Terminal Javascript Snippets in Coco</h2>
       <ol>
@@ -110,5 +130,6 @@
       </ul>
     </div>
     <script src="../static/bookmarklet.js"></script>
+     -->
   </body>
 </html>
