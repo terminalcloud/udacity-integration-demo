@@ -1,4 +1,5 @@
 const React = require('react')
+const $ = require('jquery')
 
 module.exports = function ({ bootstrap, PanelManager, Terminal, Editor, Files, Layout }) {
   class Project extends React.Component {
@@ -11,7 +12,12 @@ module.exports = function ({ bootstrap, PanelManager, Terminal, Editor, Files, L
     }
 
     componentDidMount() {
-      this.addTestFile()
+      $.ajax({
+        type: 'POST',
+        url: this.props.serverUrl + '/exec',
+        data: JSON.stringify({ cmd: `if [ ! -f /home/test.py ] ; then  echo "print 'Hello World'" > /home/test.py; fi` }),
+        success: () => { this.addTestFile() }
+      })
     }
 
     run() {
