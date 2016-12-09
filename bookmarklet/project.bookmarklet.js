@@ -45,7 +45,10 @@ function render(terminalAddress) {
   const Project = makeProject({ bootstrap, PanelManager, Terminal, Editor, Files, Layout })
 
   const root = document.getElementById('main-layout-content')
-  ReactDOM.render(<Project serverUrl={parseUrl(serverUrl)}/>, root);
+  const terminalNode = document.createElement('div')
+  terminalNode.id = 'terminal-demo'
+  jQuery(root).append(terminalNode)
+  ReactDOM.render(<Project serverUrl={parseUrl(serverUrl)}/>, terminalNode);
 }
 
 function main() {
