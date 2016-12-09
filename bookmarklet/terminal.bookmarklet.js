@@ -4,7 +4,7 @@ const React = require('react')
 const ReactDOM = require('react-dom')
 const $ = require('jquery')
 const { getTerminal } = require('../util')
-const makeProject = require('../project')
+const makeProject = require('../project.terminal')
 
 require('../index.sass')
 
@@ -51,25 +51,8 @@ function render(terminalAddress) {
   ReactDOM.render(<Project serverUrl={parseUrl(serverUrl)}/>, terminalNode);
 }
 
-function getCookie(cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for(var i = 0; i <ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0)==' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length,c.length);
-        }
-    }
-    return "";
-}
-
 function main() {
-  var jwt = getCookie("_jwt");
-  console.log('jwt from udacity: ', jwt)
-  loadWebTerminal().then(getTerminal(jwt)).then(render)
+  loadWebTerminal().then(getTerminal).then(render)
 }
 
 main()
