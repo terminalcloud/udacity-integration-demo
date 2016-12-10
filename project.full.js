@@ -83,13 +83,13 @@ module.exports = function ({ bootstrap, PanelManager, Terminal, Editor, Files, L
 
       <br/>
       <p style={{ position: 'relative', top: 680 }}>
-        Some content can go here!
+        Let's focus on how python  math actually works. When you're working in Python you can use 
+        the "math" library to access many functions to speed your everyday computations along. For
+        instance, you can use ceil(), floor(), and round() to convert fractional numbers to nice round
+        integers in a predictable way.
 
-        And more content! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
-        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-        esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
-        qui officia deserunt mollit anim id est laborum.
+        To show this off, let's play with a few of these in the python interpreter below. Enter math.ceil(4.5) into
+         the interpreter and see what it says. Then try math.floor(4.5). Did this do what you'd expect?
       </p>
 
       <div style={{ top: 800, position: 'relative', height: 300, marginBottom: 200 }}>
