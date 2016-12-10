@@ -4,7 +4,7 @@ const React = require('react')
 const ReactDOM = require('react-dom')
 const $ = require('jquery')
 const { getTerminal } = require('../util')
-const makeProject = require('../project')
+const makeProject = require('../project.full.js')
 const makeTerminal = require('../project.terminal.js')
 const makeEditor = require('../project.editor.js')
 
