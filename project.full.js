@@ -23,8 +23,11 @@ module.exports = function ({ bootstrap, PanelManager, Terminal, Editor, Files, L
 
     run() {
       this.editorManager.saveAllFiles().then(() => {
-        this.terminalManager.destroyTerm(this.terminalManager.getCurrentTermId())
-        this.terminalManager.newTerm('test code', '/usr/bin/python', ['-i', '/home/test.py'])
+        this.terminalManager.destroyTerm('test code')
+        this.terminalManager.newTerm('test code', '/usr/bin/python', ['-i', '/home/test.py'], () => this.terminalManager.SelectTab('test code'))
+
+        this.terminal2Manager.destroyTerm('repl')
+        this.terminal2Manager.newTerm('repl', '/usr/bin/python', [], () => this.terminalManager.SelectTab('repl'))
       })
     }
 
