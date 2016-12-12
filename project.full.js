@@ -81,33 +81,6 @@ module.exports = function ({ bootstrap, PanelManager, Terminal, Editor, Files, L
           }
         }}/>
 
-      <br/>
-      <p style={{ position: 'relative', top: 680 }}>
-        Let's focus on how python  math actually works. When you're working in Python you can use 
-        the "math" library to access many functions to speed your everyday computations along. For
-        instance, you can use ceil(), floor(), and round() to convert fractional numbers to nice round
-        integers in a predictable way.
-
-        To show this off, let's play with a few of these in the python interpreter below. Enter math.ceil(4.5) into
-         the interpreter and see what it says. Then try math.floor(4.5). Did this do what you'd expect?
-      </p>
-
-      <div style={{ top: 800, position: 'relative', height: 300, marginBottom: 200 }}>
-        <Layout layout={{
-            is_hidden: {},
-            maximized: '',
-            layout: {
-              type: 'horizontal',
-              parts: [
-                {
-                  component: <Terminal manager={this.terminal2Manager} serverUrl={this.props.serverUrl}/>,
-                  key: 'terminal',
-                  weight: 1
-                }
-              ]
-            }
-          }}/>
-      </div>
       </div>
     }
   }
