@@ -15,13 +15,26 @@ span.closetab
 .panel .navbar.unselectable
   display: none
 
+#terminal-demo .full-project .panel
+  border-bottom: none
+
+#terminal-demo .full-project div.terminal:not([style*="display: none"])
+  padding-left: 10px
+
+#terminal-demo .terminal-only div.terminal:not([style*="display: none"])
+  padding: 10px !important
+
+.terminal-only .content_div
+  background-color: black
+
 body
   overflow: auto !important
 
-#terminal-demo #runcode_container, .test-code-panel
+#terminal-demo #runcode_container.panel
   padding: 10px
+  border-bottom: 1px solid #657b83
 
-#terminal-demo .terminal-panel .terminal
+.terminal-only .terminal-panel.terminal
   padding: 10px
 
 #terminal-demo .theme_dark .tab
