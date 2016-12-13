@@ -17,7 +17,7 @@ module.exports = function ({ bootstrap, PanelManager, Terminal, Editor, Files, L
         type: 'POST',
         url: this.props.serverUrl + '/exec',
         data: JSON.stringify({ cmd: `if [ ! -f /home/test.py ] ; then  echo "print 'Hello World'" > /home/test.py; fi` }),
-        success: () => { this.addTestFile() }
+        success: () => { this.addTestFile(); this.run() }
       })
     }
 
@@ -27,7 +27,7 @@ module.exports = function ({ bootstrap, PanelManager, Terminal, Editor, Files, L
         this.terminalManager.newTerm('test code', '/usr/bin/python', ['-i', '/home/test.py'], () => this.terminalManager.SelectTab('test code'))
 
         this.terminal2Manager.destroyTerm('repl')
-        this.terminal2Manager.newTerm('repl', '/usr/bin/python', [], () => this.terminalManager.SelectTab('repl'))
+        this.terminal2Manager.newTerm('repl', '/usr/bin/python', [], () => this.terminal2Manager.SelectTab('repl'))
       })
     }
 
