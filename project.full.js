@@ -98,7 +98,7 @@ module.exports = function ({ bootstrap, PanelManager, Terminal, Editor, Files, L
                the interpreter and see what it says. Then try math.floor(4.5). Did this do what you'd expect?
             </p>
           </article>
-          <div className="terminal-only" style={{ top: 800, position: 'relative', height: 300, marginBottom: 200 }}>
+          <div className="terminal-only" style={{ top: 700, position: 'relative', height: 300, marginBottom: 200 }}>
             <Layout layout={{
                 is_hidden: {},
                 maximized: '',
