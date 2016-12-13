@@ -1,18 +1,11 @@
-/* global WebTerminal, TERMINAL_DEMO_STAGE */
+/* global WebTerminal */
 window.TERMINAL_DEMO_STAGE = window.TERMINAL_DEMO_STAGE || 'initialize';
 const React = require('react')
 const ReactDOM = require('react-dom')
 const $ = require('jquery')
 const { getTerminal } = require('../util')
 const makeProject = require('../project.full.js')
-const makeTerminal = require('../project.terminal.js')
-const makeEditor = require('../project.editor.js')
-
-if (TERMINAL_DEMO_STAGE === 'initialize') {
-  require('../index.sass')
-}
-
-// try this on: https://classroom.udacity.com/nanodegrees/nd200/parts/24c5c39a-6040-4d5a-82d8-7d3d30d7bc9a/project
+require('../index.sass')
 
 window.$ = $;
 window.jQuery = $;
@@ -34,12 +27,8 @@ function loadWebTerminal() {
     'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'
   ]
 
-  if (TERMINAL_DEMO_STAGE === 'initialize') {
-    console.log('append scripts and stylesheets')
-    const getStyle = (path) => $('<link/>', { rel: 'stylesheet', type: 'text/css', href: path }).appendTo('head')
-    styles.forEach(getStyle)
-  }
-
+  const getStyle = (path) => $('<link/>', { rel: 'stylesheet', type: 'text/css', href: path }).appendTo('head')
+  styles.forEach(getStyle)
   const getScript = (script) => Promise.resolve($.getScript(script))
   return Promise.all(scripts.map(getScript))
 }
@@ -52,37 +41,17 @@ function render(terminalAddress) {
   let Project;
   let terminalNode = document.getElementById('terminal-demo');
 
-  switch(TERMINAL_DEMO_STAGE) {
-    case 'initialize':
-      console.log('stage: ', TERMINAL_DEMO_STAGE)
-      // create the dom node for rendering into
-      const root = document.getElementById('main-layout-content')
-      terminalNode = document.createElement('div')
-      terminalNode.id = 'terminal-demo'
-      jQuery(root).append(terminalNode)
-
-      TERMINAL_DEMO_STAGE = 'project'
-      //falls through
-    case 'project':
-      console.log('stage: ', TERMINAL_DEMO_STAGE)
-      Project = makeProject({ bootstrap, PanelManager, Terminal, Editor, Files, Layout })
-      TERMINAL_DEMO_STAGE = 'editor'
-      break;
-    case 'editor':
-      console.log('stage: ', TERMINAL_DEMO_STAGE)
-      Project = makeEditor({ bootstrap, PanelManager, Terminal, Editor, Files, Layout })
-      TERMINAL_DEMO_STAGE = 'terminal'
-      break;
-    case 'terminal':
-      console.log('stage: ', TERMINAL_DEMO_STAGE)
-      Project = makeTerminal({ bootstrap, PanelManager, Terminal, Editor, Files, Layout })
-      TERMINAL_DEMO_STAGE = 'project'
-      break;
-
-    default:
-      console.log('broke', TERMINAL_DEMO_STAGE)
+  // create the dom node for rendering into
+  const oldNode = document.getElementById('terminal-demo')
+  const root = document.getElementById('main-layout-content')
+  if (oldNode) {
+    root.removeChild(oldNode)
   }
+  terminalNode = document.createElement('div')
+  terminalNode.id = 'terminal-demo'
+  jQuery(root).append(terminalNode)
 
+  Project = makeProject({ bootstrap, PanelManager, Terminal, Editor, Files, Layout })
   ReactDOM.render(<Project serverUrl={parseUrl(serverUrl)}/>, terminalNode);
 }
 
