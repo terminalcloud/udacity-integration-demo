@@ -1,14 +1,18 @@
-/* global WebTerminal */
-window.TERMINAL_DEMO_STAGE = window.TERMINAL_DEMO_STAGE || 'initialize';
+/* global WebTerminal, TERMINAL_DEMO_STAGE  */
+
 const React = require('react')
 const ReactDOM = require('react-dom')
 const $ = require('jquery')
 const { getTerminal } = require('../util')
 const makeProject = require('../project.full.js')
-require('../index.sass')
 
+window.TERMINAL_DEMO_STAGE = window.TERMINAL_DEMO_STAGE || 'initialize';
 window.$ = $;
 window.jQuery = $;
+
+if (TERMINAL_DEMO_STAGE === 'initialize') {
+  require('../index.sass')
+}
 
 function loadWebTerminal() {
   const scripts = [
@@ -27,8 +31,12 @@ function loadWebTerminal() {
     'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'
   ]
 
-  const getStyle = (path) => $('<link/>', { rel: 'stylesheet', type: 'text/css', href: path }).appendTo('head')
-  styles.forEach(getStyle)
+  if (TERMINAL_DEMO_STAGE === 'initialize') {
+    console.log('append scripts and stylesheets')
+    const getStyle = (path) => $('<link/>', { rel: 'stylesheet', type: 'text/css', href: path }).appendTo('head')
+    styles.forEach(getStyle)
+  }
+
   const getScript = (script) => Promise.resolve($.getScript(script))
   return Promise.all(scripts.map(getScript))
 }
