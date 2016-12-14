@@ -1,0 +1,104 @@
+.CodeMirror
+  height: calc(100% - 58px);
+  overflow: visible;
+
+.editor
+  height: 100%
+
+.editor-remote-selection-background-0
+  background-color: #b58900
+
+.editor-remote-selection-background-1
+  background-color: #268bd2
+
+.editor-remote-selection-background-2
+  background-color: #cb4b16
+
+.editor-remote-selection-background-3
+  background-color: #dc322f
+
+.editor-remote-selection-background-4
+  background-color: #6c71c4
+
+.editor-remote-selection-background-5
+  background-color: #859900
+
+$overflow-width: 20px
+
+.editor-tabs-wrapper
+  .editor-tabs
+    width: 100%
+  .overflow-tab
+    display: none
+  &.hasOverflow
+    .editor-tabs
+      width: calc(100% - #{$overflow-width})
+    .overflow-tab
+      display: block
+
+.editor-tabs
+  display: flex
+  flex-direction: row
+  flex-wrap: nowrap
+
+  .tab
+    flex-basis: 50px
+    flex-grow: 1
+    max-width: 200px
+
+.editor_tab
+  display: flex
+  flex-direction: row
+  flex-wrap: nowrap
+  .editor_tab_text
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
+    display: inline-block
+    flex-grow: 1
+  .editor_tab_members
+    flex-basis: 10px
+  .closetab
+    flex-basis: 20px
+
+.editor_tab_members
+  vertical-align: top
+
+.overflow-tab
+  position: absolute
+  top: 0
+  right: 0
+
+  width: $overflow-width
+
+  display: inline-block
+  height: 30px
+  vertical-align: top
+  background-color: #a9a9a9
+  &:before
+    content: '\f054'
+    font-family: 'FontAwesome'
+    font-size: 12px
+    width: 20px
+    display: inline-block
+    text-align: center
+    line-height: 30px
+    color: white
+
+.overflow-tab.active:before
+  content: '\f078'
+
+.overflow-dropdown
+  position: absolute
+  right: 0px
+  background-color: white
+  z-index: 10001
+  list-style-type: none
+  padding-left: 0
+  width: 200px
+  box-shadow: 0 2px 6px 0 rgba(46, 60, 73, 0.2)
+  li
+    padding: 5px 10px
+    &.active, &:hover
+      background-color: $accent-color
+      color: white

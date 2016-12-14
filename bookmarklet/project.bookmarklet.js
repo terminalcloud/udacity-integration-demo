@@ -35,6 +35,7 @@ function loadWebTerminal() {
     console.log('append scripts and stylesheets')
     const getStyle = (path) => $('<link/>', { rel: 'stylesheet', type: 'text/css', href: path }).appendTo('head')
     styles.forEach(getStyle)
+    document.getElementsByTagName('body')[0].setAttribute('class', 'theme_light')
   }
 
   const getScript = (script) => Promise.resolve($.getScript(script))
