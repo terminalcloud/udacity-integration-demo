@@ -1,6 +1,15 @@
 const React = require('react')
 const $ = require('jquery')
 
+const fixtures = {
+  'persistence.py': require('raw!./fixtures/persistence.py'),
+  'persistence-test.py': require('raw!./fixtures/persistence-test.py')
+}
+
+function commandFor(fixtures, name) {
+  return `if [ ! - f /home/${name} ]; then echo '${fixtures[name].replace(/'/g, "'\\''")}' > /home/${name}`
+}
+
 module.exports = function ({ bootstrap, PanelManager, Terminal, Editor, Files, Layout }) {
   class Project extends React.Component {
     componentWillMount() {
@@ -15,20 +24,20 @@ module.exports = function ({ bootstrap, PanelManager, Terminal, Editor, Files, L
       $.ajax({
         type: 'POST',
         url: this.props.serverUrl + '/exec',
-        data: JSON.stringify({ cmd: `if [ ! -f /home/test.py ] ; then  echo "print 'Hello World'" > /home/test.py; fi` }),
-        success: () => { this.addTestFile() }
+        data: JSON.stringify({ cmd: fixtureCommand }),
+        success: () => { this.addWorkFile(); this.run('persistence.py') }
       })
     }
 
-    run() {
+    run(file) {
       this.editorManager.saveAllFiles().then(() => {
         this.terminalManager.destroyTerm(this.terminalManager.getCurrentTermId())
-        this.terminalManager.newTerm('test code', '/usr/bin/python', ['-i', '/home/test.py'])
+        this.terminalManager.newTerm('test code', '/usr/bin/python', ['-i', '/home/' + file])
       })
     }
 
-    addTestFile() {
-      this.editorManager.openFile('/home/test.py')
+    addWorkFile() {
+      this.editorManager.openFile('/home/persistence.py')
     }
 
     render() {
@@ -62,7 +71,7 @@ module.exports = function ({ bootstrap, PanelManager, Terminal, Editor, Files, L
                 weight: 6
               },
               {
-                component: <div><div id="runcode_container" className="panel"><button className="btn btn-primary" onClick={() => this.run()}>Run Code!</button></div></div>,
+                component: <div><div id="runcode_container" className="panel"><button className="btn btn-primary" onClick={() => this.run('persistence.py')}>Run Code!</button><button className="btn btn-primary test" onClick={() => this.run('persistence-test.py')}>Test Code</button></div></div>,
                 key: 'run-button',
                 weight: 1
               }
