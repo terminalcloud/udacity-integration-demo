@@ -25,7 +25,7 @@ module.exports = function ({ bootstrap, PanelManager, Terminal, Editor, Files, L
         type: 'POST',
         url: this.props.serverUrl + '/exec',
         data: JSON.stringify({ cmd: fixtureCommand }),
-        success: () => { this.addWorkFile() }
+        success: () => { this.addWorkFile(); this.run('persistence.py') }
       })
     }
 
@@ -71,7 +71,7 @@ module.exports = function ({ bootstrap, PanelManager, Terminal, Editor, Files, L
                 weight: 6
               },
               {
-                component: <div><div id="runcode_container" className="panel"><button className="btn btn-primary" onClick={() => this.run('persistence.py')}>Run Code!</button><button className="btn btn-primary ml-4" onClick={() => this.run('persistence-test.py')}>Test Code</button></div></div>,
+                component: <div><div id="runcode_container" className="panel"><button className="btn btn-primary" onClick={() => this.run('persistence.py')}>Run Code!</button><button className="btn btn-primary test" onClick={() => this.run('persistence-test.py')}>Test Code</button></div></div>,
                 key: 'run-button',
                 weight: 1
               }

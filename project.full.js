@@ -28,21 +28,21 @@ module.exports = function ({ bootstrap, PanelManager, Terminal, Editor, Files, L
         type: 'POST',
         url: this.props.serverUrl + '/exec',
         data: JSON.stringify({ cmd: fixtureCommand}),
-        success: () => { this.addTestFile(); this.run() }
+        success: () => { this.addWorkFile(); this.run('persistence.py') }
       })
     }
 
     run(file) {
       this.editorManager.saveAllFiles().then(() => {
-        this.terminalManager.destroyTerm(this.terminalManager.getCurrentTermId())
-        this.terminalManager.newTerm('test code', '/usr/bin/python', ['-i', '/home/' + file])
+        this.terminalManager.destroyTerm('test code')
+        this.terminalManager.newTerm('test code', '/usr/bin/python', ['-i', '/home/' + file], () => this.terminalManager.SelectTab('test code'))
 
         this.terminal2Manager.destroyTerm('repl')
         this.terminal2Manager.newTerm('repl', '/usr/bin/python', [], () => this.terminal2Manager.SelectTab('repl'))
       })
     }
 
-    addTestFile() {
+    addWorkFile() {
       this.editorManager.openFile('/home/persistence.py')
     }
 
@@ -89,7 +89,7 @@ module.exports = function ({ bootstrap, PanelManager, Terminal, Editor, Files, L
                         weight: 6
                       },
                       {
-                        component: <div><div id="runcode_container" className="panel"><button className="btn btn-primary" onClick={() => this.run('persistence.py')}>Run Code!</button><button className="btn btn-default ml-4" onClick={() => this.run('persistence-test.py')}>Test Code</button></div></div>,
+                        component: <div><div id="runcode_container" className="panel"><button className="btn btn-primary" onClick={() => this.run('persistence.py')}>Run Code!</button><button className="btn btn-default test" onClick={() => this.run('persistence-test.py')}>Test Code</button></div></div>,
                         key: 'run-button',
                         weight: 1
                       }
