@@ -56,8 +56,9 @@ module.exports = function ({ bootstrap, PanelManager, Terminal, Editor, Files, L
 
       return (
         <div className="multiple-components">
-          <div className='full-project theme_dark' style={layoutBoxStyle}>
-            <Layout layout={{
+          <div className="full-project">
+            <div className="theme_dark" style={layoutBoxStyle}>
+              <Layout layout={{
               override: true,
               is_hidden: {},
               maximized: '',
@@ -97,6 +98,7 @@ module.exports = function ({ bootstrap, PanelManager, Terminal, Editor, Files, L
                 ]
               }
             }}/>
+            </div>
           </div>
           <article className="demo-text" style={{ position: 'relative', top: 680 }}>
             <p>
