@@ -27,7 +27,6 @@ module.exports = function ({ bootstrap, PanelManager, Terminal, Editor, Files, L
       this.files3Manager = new PanelManager()
     }
 
-    //TODO: do I need to target the run command to a particular project?
     componentDidMount() {
       $.ajax({
         type: 'POST',
@@ -50,14 +49,14 @@ module.exports = function ({ bootstrap, PanelManager, Terminal, Editor, Files, L
       }
       editorManager.saveAllFiles().then(() => {
         terminalManager.destroyTerm(id)
-        terminalManager.newTerm(id, '/usr/bin/python', ['-i', '/home/' + file], () => terminalManager.SelectTab(id))
+        terminalManager.newTerm(id, '/usr/bin/python', ['-i', '/home/student_files/' + file], () => terminalManager.SelectTab(id))
       })
     }
 
     addWorkFile() {
       this.filesManager.cd('/home/student_files')
-      this.editorManager.openFile('/home/lesson1.py')
-      this.editorManager.openFile('/home/lesson2.py')
+      this.editorManager.openFile('/home/student_files/lesson1.py')
+      this.editorManager.openFile('/home/student_files/lesson2.py')
     }
 
     renderButtons(id) {
