@@ -16,7 +16,6 @@ module.exports = function ({ bootstrap, PanelManager, Terminal, Editor, Files, L
   class Project extends React.Component {
     componentWillMount() {
       bootstrap(this.props.serverUrl)
-      console.log('full project')
       this.terminalManager = new PanelManager()
       this.editorManager = new PanelManager()
       this.filesManager = new PanelManager()

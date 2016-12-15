@@ -1,12 +1,6 @@
 print('Testing your persistence function...')
 
-# Silence stdout while importing file to test
-import sys
-import cStringIO
-save_stdout = sys.stdout
-sys.stdout = cStringIO.StringIO()
 import persistence
-sys.stdout = save_stdout
 
 tests = [(1, 0), (4, 0), (39, 3), (55, 3), (93, 3), (100, 1), (100, 1), (100, 1), (100, 1), (100, 1), (100, 1), 
   (100, 1), (100, 1), (100, 1), (100, 1), (100, 1), (100, 1), (100, 1), (100, 1), (100, 1), (106, 1), (109, 1), 

@@ -2,7 +2,6 @@
 # num and returns its multiplicative persistence, which is the number
 # of times you must multiply the digits in num until you reach a
 # single digit.
-
 import operator
 
 def persistence(n):
@@ -21,7 +20,8 @@ def digits(n):
     dig.append(n)
     return dig
 
-print(persistence(1))
-print(persistence(17))
-print(persistence(129))
-print(persistence(1231))
+if __name__ == '__main__':
+    print(persistence(1))
+    print(persistence(17))
+    print(persistence(129))
+    print(persistence(1231))
