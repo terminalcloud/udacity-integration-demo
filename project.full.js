@@ -2,8 +2,8 @@ const React = require('react')
 const $ = require('jquery')
 
 const fixtures = {
-  'persistence.py': require('raw!./fixtures/persistence.py'),
-  'persistence-test.py': require('raw!./fixtures/persistence-test.py'),
+  'lesson2.py': require('raw!./fixtures/lesson2.py'),
+  'lesson2-test.py': require('raw!./fixtures/lesson2-test.py'),
   'lesson1.py': require('raw!./fixtures/lesson1.py')
 }
 
@@ -33,7 +33,7 @@ module.exports = function ({ bootstrap, PanelManager, Terminal, Editor, Files, L
         type: 'POST',
         url: this.props.serverUrl + '/exec',
         data: JSON.stringify({ cmd: fixtureCommand}),
-        success: () => { this.addWorkFile(); this.run('persistence.py', 'full') }
+        success: () => { this.addWorkFile(); this.run('lesson2.py', 'full') }
       })
 
       this.terminal2Manager.destroyTerm('repl')
@@ -57,11 +57,11 @@ module.exports = function ({ bootstrap, PanelManager, Terminal, Editor, Files, L
     addWorkFile() {
       this.filesManager.cd('/home/student_files')
       this.editorManager.openFile('/home/lesson1.py')
-      this.editorManager.openFile('/home/persistence.py')
+      this.editorManager.openFile('/home/lesson2.py')
     }
 
     renderButtons(id) {
-      let file = 'persistence.py'
+      let file = 'lesson2.py'
       if (id === 'half') { file = 'lesson1.py' }
       return (
         <div>
@@ -73,7 +73,7 @@ module.exports = function ({ bootstrap, PanelManager, Terminal, Editor, Files, L
             {
               id === 'full'
               ? <button className="btn btn-default test"
-                        onClick={() => this.run('persistence-test.py', id)}
+                        onClick={() => this.run('lesson2-test.py', id)}
                         >Test Code</button>
               : ''
             }

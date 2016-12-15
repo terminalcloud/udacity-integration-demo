@@ -2,8 +2,8 @@ const React = require('react')
 const $ = require('jquery')
 
 const fixtures = {
-  'persistence.py': require('raw!./fixtures/persistence.py'),
-  'persistence-test.py': require('raw!./fixtures/persistence-test.py')
+  'lesson2.py': require('raw!./fixtures/lesson2.py'),
+  'lesson2-test.py': require('raw!./fixtures/lesson2-test.py')
 }
 
 function commandFor(fixtures, name) {
