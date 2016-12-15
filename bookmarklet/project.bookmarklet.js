@@ -4,7 +4,7 @@ const React = require('react')
 const ReactDOM = require('react-dom')
 const $ = require('jquery')
 const { getTerminal } = require('../util')
-const makeProject = require('../project.full.js')
+const makeProject = require('../project.js')
 
 window.TERMINAL_DEMO_STAGE = window.TERMINAL_DEMO_STAGE || 'initialize';
 window.$ = $;

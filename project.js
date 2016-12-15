@@ -10,6 +10,8 @@ function commandFor(fixtures, name) {
   return `if [ ! - f /home/${name} ]; then echo '${fixtures[name].replace(/'/g, "'\\''")}' > /home/${name}`
 }
 
+const fixtureCommand = Object.keys(fixtures).map(name => commandFor(fixtures, name)).join('\n')
+
 module.exports = function ({ bootstrap, PanelManager, Terminal, Editor, Files, Layout }) {
   class Project extends React.Component {
     componentWillMount() {
@@ -25,7 +27,7 @@ module.exports = function ({ bootstrap, PanelManager, Terminal, Editor, Files, L
         type: 'POST',
         url: this.props.serverUrl + '/exec',
         data: JSON.stringify({ cmd: fixtureCommand }),
-        success: () => { this.addWorkFile(); this.run('persistence.py') }
+        success: () => { this.addWorkFile(); this.run('test.py') }
       })
     }
 
@@ -37,17 +39,17 @@ module.exports = function ({ bootstrap, PanelManager, Terminal, Editor, Files, L
     }
 
     addWorkFile() {
-      this.editorManager.openFile('/home/persistence.py')
+      this.editorManager.openFile('/home/test.py')
     }
 
     render() {
       const layoutBoxStyle = {
-        position: 'absolute',
-        height: '100%',
-        width: '100%'
+        maxWidth: 800,
+        height: 680,
+        position: 'relative'
       }
 
-      return <div className='theme_light' style={layoutBoxStyle}>
+      return <div className='theme_dark' style={layoutBoxStyle}>
         <div style={{ display: 'none' }}>
           <Files manager={this.filesManager} editorManager={this.editorManager} serverUrl={this.props.serverUrl}/>
         </div>
@@ -71,7 +73,7 @@ module.exports = function ({ bootstrap, PanelManager, Terminal, Editor, Files, L
                 weight: 6
               },
               {
-                component: <div><div id="runcode_container" className="panel"><button className="btn btn-primary" onClick={() => this.run('persistence.py')}>Run Code!</button><button className="btn btn-primary test" onClick={() => this.run('persistence-test.py')}>Test Code</button></div></div>,
+                component: <div><div id="runcode_container" className="panel"><button className="btn btn-primary" onClick={() => this.run('test.py')}>Run Code!</button></div></div>,
                 key: 'run-button',
                 weight: 1
               }
