@@ -1,6 +1,7 @@
-# Write a function, persistence, that takes in a positive parameter num and returns its 
-# multiplicative persistence, which is the number of times you must multiply the digits 
-# in num until you reach a single digit.
+# Write a function, persistence, that takes in a positive parameter
+# num and returns its multiplicative persistence, which is the number
+# of times you must multiply the digits in num until you reach a
+# single digit.
 
 import operator
 
@@ -11,7 +12,7 @@ def persistence(n):
         i = i + 1
         cur = reduce(operator.mul, digits(cur), 1)
     return i
-  
+
 def digits(n):
     dig = []
     while n > 9:
