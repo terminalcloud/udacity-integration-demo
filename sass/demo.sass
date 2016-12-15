@@ -1,7 +1,14 @@
 #terminal-demo
   max-width: 800px
   margin: 0 auto 50px
+  overflow: scroll
 
+#terminal-demo .multiple-components
+  position: relative
+  margin: 50px 0 0 0
+
+
+// Full Project - Files, Editor, and Repl
 #terminal-demo .full-project
   height: 630px
   width: 100%
@@ -22,28 +29,9 @@ span.closetab
 #terminal-demo .full-project div.terminal:not([style*="display: none"])
   padding-left: 10px
 
-#terminal-demo .terminal-only div.terminal:not([style*="display: none"])
-  padding: 10px !important
-
-.terminal-only .content_div
-  background-color: black
-
 #terminal-demo #runcode_container.panel
   padding: 10px
   border-bottom: 1px solid #657b83
-
-.terminal-only .terminal-panel.terminal
-  padding: 10px
-
-#terminal-demo .theme_dark .tab
-  border: 0
-  background-color: #1c262f
-  height: 22px
-
-#terminal-demo .theme_dark .tab.active
-  background-color: #1c262f
-  background: inherit
-  border: 0
 
 #terminal-demo #uploader
   display: none
@@ -56,3 +44,37 @@ span.closetab
 
 #terminal-demo .btn.test
   margin-left: 15px
+
+#terminal-demo .theme_dark .tab
+  border: 0
+  background-color: #1c262f
+  height: 22px
+
+#terminal-demo .theme_dark .tab.active
+  background-color: #1c262f
+  background: inherit
+  border: 0
+
+
+
+// Text between terminals
+#terminal-demo .demo-text
+  margin: 50px 0
+
+
+
+
+// Terminal Only
+#terminal-demo .terminal-only
+  position: relative
+  height: 300px
+  margin: 0 0 300px 0
+
+#terminal-demo .terminal-only div.terminal:not([style*="display: none"])
+  padding: 10px !important
+
+.terminal-only .content_div
+  background-color: black
+
+.terminal-only .terminal-panel.terminal
+  padding: 10px

@@ -16,7 +16,6 @@ module.exports = function ({ bootstrap, PanelManager, Terminal, Editor, Files, L
   class Project extends React.Component {
     componentWillMount() {
       bootstrap(this.props.serverUrl)
-      console.log('full project')
       this.terminalManager = new PanelManager()
       this.editorManager = new PanelManager()
       this.filesManager = new PanelManager()
@@ -39,7 +38,6 @@ module.exports = function ({ bootstrap, PanelManager, Terminal, Editor, Files, L
       this.editorManager.saveAllFiles().then(() => {
         this.terminalManager.destroyTerm('test code')
         this.terminalManager.newTerm('test code', '/usr/bin/python', ['-i', '/home/' + file], () => this.terminalManager.SelectTab('test code'))
-
       })
     }
 
@@ -47,48 +45,96 @@ module.exports = function ({ bootstrap, PanelManager, Terminal, Editor, Files, L
       this.editorManager.openFile('/home/persistence.py')
     }
 
-    render() {
-      const layoutBoxStyle = {
-        position: 'absolute',
-        height: '100%',
-        width: '100%'
-      }
+    renderButtons() {
+      return (
+        <div>
+          <div id="runcode_container" className="panel">
+            <button
+              className="btn btn-primary"
+              onClick={() => this.run('persistence.py')}
+              >Run Code</button>
+            <button
+              className="btn btn-default test"
+              onClick={() => this.run('persistence-test.py')}
+              >Test Code</button>
+          </div>
+        </div>
+      )
+    }
 
+    render() {
       return (
         <div className="multiple-components">
-          <div className="full-project">
-            <div style={{display: 'none'}}>
-              <Files manager={this.filesManager}
-                                editorManager={this.editorManager}
-                                serverUrl={this.props.serverUrl}>
-              </Files>
-            </div>
-            <div className="theme_dark" style={layoutBoxStyle}>
-              <Layout layout={{
-                override: true,
+          <div className='full-project theme_dark'>
+            <Layout layout={{
+              override: true,
+              is_hidden: {},
+              maximized: '',
+              layout: {
+                type: 'vertical',
+                parts: [
+                  {
+                    type: 'horizontal',
+                    parts: [
+                      {
+                        component: <Files manager={this.filesManager}
+                                          editorManager={this.editorManager}
+                                          serverUrl={this.props.serverUrl}/>,
+                        key: 'files',
+                        weight: 2
+                      },
+                      {
+                        component: <Editor manager={this.editorManager}
+                                           filesManager={this.filesManager}
+                                           serverUrl={this.props.serverUrl}/>,
+                        key: 'editor',
+                        weight: 6
+                      },
+                   ],
+                   weight: 6
+                 },
+                      {
+                        component: <Terminal manager={this.terminalManager}
+                                             serverUrl={this.props.serverUrl}/>,
+                        key: 'terminal',
+                        weight: 6
+                      },
+                      {
+                        component: this.renderButtons(),
+                        key: 'run-button',
+                        weight: 1
+                      }
+                ]
+              }
+            }}/>
+          </div>
+          <article className="demo-text">
+            <p>
+              Let's focus on how python  math actually works. When you're working in Python you can use
+              the "math" library to access many functions to speed your everyday computations along. For
+              instance, you can use ceil(), floor(), and round() to convert fractional numbers to nice round
+              integers in a predictable way.
+            </p>
+            <p>
+              To show this off, let's play with a few of these in the python interpreter below. Enter math.ceil(4.5) into
+               the interpreter and see what it says. Then try math.floor(4.5). Did this do what you'd expect?
+            </p>
+          </article>
+          <div className="terminal-only theme_dark">
+            <Layout layout={{
                 is_hidden: {},
                 maximized: '',
-                layout: [
-                  {
-                    component: <Editor manager={this.editorManager}
-                                       filesManager={this.filesManager}
-                                       serverUrl={this.props.serverUrl}/>,
-                    key: 'editor',
-                    weight: 6
-                  },
-                  {
-                    component: <Terminal manager={this.terminalManager} serverUrl={this.props.serverUrl}/>,
-                    key: 'terminal',
-                    weight: 6
-                  },
-                  {
-                    component: <div><div id="runcode_container" className="panel"><button className="btn btn-primary" onClick={() => this.run('persistence.py')}>Run Code!</button><button className="btn btn-default test" onClick={() => this.run('persistence-test.py')}>Test Code</button></div></div>,
-                    key: 'run-button',
-                    weight: 1
-                  }
+                layout: {
+                  type: 'horizontal',
+                  parts: [
+                    {
+                      component: <Terminal manager={this.terminal2Manager} serverUrl={this.props.serverUrl}/>,
+                      key: 'terminal',
+                      weight: 1
+                    }
                   ]
+                }
               }}/>
-            </div>
           </div>
         </div>
       )

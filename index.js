@@ -5,14 +5,14 @@ const { Terminal, Files, Editor, Layout } = components
 const React = require('react')
 const ReactDOM = require('react-dom')
 const { getTerminal } = require('./util.js')
-const makeProject = require('./project.js')
+const makeProject = require('./project.full.js')
 
 require('./index.sass')
 
 const Project = makeProject({ bootstrap, PanelManager, Terminal, Editor, Files, Layout })
 
 function render(serverUrl) {
-  ReactDOM.render(<Project serverUrl={parseUrl(serverUrl)}/>, document.getElementById('root'));
+  ReactDOM.render(<Project serverUrl={parseUrl(serverUrl)}/>, document.getElementById('terminal-demo'));
 }
 
 getTerminal().then((res) => {
