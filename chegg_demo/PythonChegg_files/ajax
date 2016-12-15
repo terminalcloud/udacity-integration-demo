@@ -1,0 +1,4 @@
+_AT.applyWhenReady([{"action":"customCode","selector":"HEAD","content":"<script type=\"text/javascript\">\n\tconsole.log('IN TBS ADOBE BUCKET-A V2');\n</script>"}]);var mboxCurrent = mboxFactories.get('default').get('target-global-mbox',0);mboxCurrent.setOffer(new mboxOfferAjax(''));mboxCurrent.getOffer().setOnLoad(function() {
+/*mboxHighlight+ (1of2) v1 ==> Response Plugin*/
+window.ttMETA=(typeof(window.ttMETA)!='undefined')?window.ttMETA:[];window.ttMETA.push({'mbox':'target-global-mbox','campaign':'Personalized Paywall on TBS page Dec 2016','experience':'Experience A','offer':'/personalized_paywallontbspageoriginalcopy0/experiences/0/pages/0/0/1480701683566'});window.ttMBX=function(x){var mbxList=[];for(i=0;i<ttMETA.length;i++){if(ttMETA[i].mbox==x.getName()){mbxList.push(ttMETA[i])}}return mbxList[x.getId()]};
+});mboxCurrent.loaded();
