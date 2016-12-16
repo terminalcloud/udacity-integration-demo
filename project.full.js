@@ -83,6 +83,15 @@ module.exports = function ({ bootstrap, PanelManager, Terminal, Editor, Files, L
     render() {
       return (
         <div className="multiple-components">
+          <article className="demo-text">
+            <p>
+              Python has many math functions to help you with numeric calculations. Python can represent all kinds of numbers: integers, fractions, positive and negative, trigonometry constants like PI, etc. Let's experiment with a few of these now. We'll set some variables (as you learned in Chapter 1). Try entering the following code into the interpreter directly below where you see the prompt >>> . :
+            </p>
+            <pre><code>balance = 153.55</code></pre>
+            <pre><code>sales_tax = 0.85</code></pre>
+            <pre><code>taxes_due = Math.floor(balance * sales_tax)</code></pre>
+            <pre><code>print('Your taxes due are:' + taxes_due)</code></pre>
+          </article>
           <div className="terminal-only theme_dark">
             <Layout layout={{
                 is_hidden: {},
@@ -101,14 +110,7 @@ module.exports = function ({ bootstrap, PanelManager, Terminal, Editor, Files, L
           </div>
           <article className="demo-text">
             <p>
-              Let's focus on how python  math actually works. When you're working in Python you can use
-              the "math" library to access many functions to speed your everyday computations along. For
-              instance, you can use ceil(), floor(), and round() to convert fractional numbers to nice round
-              integers in a predictable way.
-            </p>
-            <p>
-              To show this off, let's play with a few of these in the python interpreter below. Enter math.ceil(4.5) into
-               the interpreter and see what it says. Then try math.floor(4.5). Did this do what you'd expect?
+              Now let's try applying this to a program. We've created a program for you to start with. Use the editor below to edit the program, and click <b>Run Code</b> to run the program. Change the amount of your starting balance to 2544.53, and make your program round the taxes up. Use math.ceil() to round up.
             </p>
           </article>
           <div className='full-project half_project theme_dark'>
@@ -145,10 +147,7 @@ module.exports = function ({ bootstrap, PanelManager, Terminal, Editor, Files, L
           </div>
           <article className="demo-text">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              Great job! Now that you've modified a program, it's time to write your own. Using the file browser below, double click the file "lesson2.py" and add code to compute your tax refund. At the end of the fiscal year, you should receive a refund on your taxes paid. Assuming you earned $50,000 dollars this year, and you paid 8.5% in taxes, calculate and print out your refund, which will be 50% of your taxes paid thanks to your excellent writeoffs, like this programming course. Press 'Run Code' to run your program and 'Test Code' to see if it is correct.
             </p>
           </article>
           <div className='full-project theme_dark'>
