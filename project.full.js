@@ -39,7 +39,6 @@ module.exports = function ({ bootstrap, PanelManager, Terminal, Editor, Files, L
       this.terminal2Manager.newTerm('repl', '/usr/bin/python', [], () => this.terminal2Manager.SelectTab('repl'))
     }
 
-    //TODO: run code sign update
     run(file, id) {
       let terminalManager = this.terminalManager
       let editorManager = this.editorManager
