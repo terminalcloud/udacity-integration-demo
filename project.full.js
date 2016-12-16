@@ -55,7 +55,6 @@ module.exports = function ({ bootstrap, PanelManager, Terminal, Editor, Files, L
     addWorkFile() {
       this.filesManager.cd('/home/student_files')
       this.editorManager.openFile('/home/student_files/lesson1.py')
-      this.editorManager.openFile('/home/student_files/lesson2.py')
     }
 
     renderButtons(id) {
@@ -87,10 +86,12 @@ module.exports = function ({ bootstrap, PanelManager, Terminal, Editor, Files, L
             <p>
               Python has many math functions to help you with numeric calculations. Python can represent all kinds of numbers: integers, fractions, positive and negative, trigonometry constants like PI, etc. Let's experiment with a few of these now. We'll set some variables (as you learned in Chapter 1). Try entering the following code into the interpreter directly below where you see the prompt >>> . :
             </p>
-            <pre><code>balance = 153.55</code></pre>
-            <pre><code>sales_tax = 0.85</code></pre>
-            <pre><code>taxes_due = Math.floor(balance * sales_tax)</code></pre>
-            <pre><code>print('Your taxes due are:' + taxes_due)</code></pre>
+            <pre>
+              <code>balance = 153.55</code>
+              <code>sales_tax = 0.85</code>
+              <code>taxes_due = Math.floor(balance * sales_tax)</code>
+              <code>print('Your taxes due are:' + taxes_due)</code>
+            </pre>
           </article>
           <div className="terminal-only theme_dark">
             <Layout layout={{
